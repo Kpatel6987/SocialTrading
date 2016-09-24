@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
- <nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
@@ -25,29 +25,20 @@
           <li><a href="#">Trade</a></li>
           <li><a href="tt.html">Trending Traders</a></li>
           <li><a href="follow.html">Followers</a></li>
-          <li class="active"><a href="chat.html">Chat</a></li>
+          <li class="active"><a href="#">Chat</a></li>
         </ul>
-
-<!--
-            <div class="input-group">
-              <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
-              <span class="input-group-btn">
-                <button id="submit" class="btn btn-secondary" type="button">Search</button>
-              </span>
-            </div>
- -->       
         </ul>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row" style="padding-right:30px">
+          <div class="col-lg-3" style="padding-top:7px">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
+              <input type="text" class="form-control transparent-input" placeholder="Search for..." value="blackrock assetType:Stock">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Search</button>
+                <button id="submit" class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-search"</span></button>
               </span>
             </div>
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
           </ul>
         </div>
       </div>
