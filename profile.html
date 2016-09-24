@@ -111,13 +111,32 @@ function loadDoc() {
       var netProfit = input - exp;
       if (netProfit > 0 && response[1] > netProfit) {
         var num = (netProfit * .2).toFixed(2);
-        document.getElementById("conf").innerHTML = "At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
-      }
+        postMethod2(num);
+        document.getElementById("conf").innerHTML = "Withdraw Successful! Your new At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
+        } else if (netProfit < 0) {
+        document.getElementById("conf").innerHTML = "Your expenses are too high to automatically invest";
+        }
     }
   };
   xhttp.open("GET", "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db?key=1c992b3dfb6d8e0ad2813cd37101e228", true);
   xhttp.send();
 }
+
+function postMethod2(num) {
+    alert("Starting");
+    xhr = new XMLHttpRequest();
+    var url = "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db/withdrawals?key=1c992b3dfb6d8e0ad2813cd37101e228";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.status == 201) {
+            var json = JSON.parse(xhr.responseText);
+        }
+    }
+    var data = JSON.stringify({"medium": "balance","amount": num});
+    xhr.send(data);
+}
+
 </script>
 </body>
 </html>
