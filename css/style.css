@@ -13,8 +13,13 @@
   height: 100%;
 }
 
+/* Image toggles sidebar */
 .imgToggler {
   margin-left: -10px;
+}
+
+.input-group {
+  padding-left: 500px;
 }
 /* Set black background color, white text and some padding */
 footer {
@@ -50,4 +55,10 @@ tr:nth-child(even) {
 
 #input {
     padding-top: 10px;
+}
+
+
+.chatFrame {
+  padding: 0px;
+  margin: 0px;
 }
