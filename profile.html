@@ -93,40 +93,6 @@
     </div>
 </div>
 
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- /#page-content-wrapper -->
-  </div>
-
-  <script>
-  function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange=function() {
-      if (this.status == 200) {
-        var response = this.responseText;
-        var responseArr = response.split(",");
-        var response = responseArr[4].split(":");
-        var input = document.getElementById("inc").value;
-        var exp = document.getElementById("cost").value;
-        var netProfit = input - exp;
-        if (netProfit > 0 && response[1] > netProfit) {
-          var num = (netProfit * .2).toFixed(2);
-          document.getElementById("conf").innerHTML = "At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
-        }
-      }
-    };
-    xhttp.open("GET", "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db?key=1c992b3dfb6d8e0ad2813cd37101e228", true);
-    xhttp.send();
-  }
-  </script>
-  <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-  </script>
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
