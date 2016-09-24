@@ -10,89 +10,145 @@
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
   <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="script.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="./js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Trade</a></li>
+          <li><a href="tt.html">Trending Traders</a></li>
+          <li><a href="follow.html">Followers</a></li>
+          <li><a href="chat.html">Chat</a></li>
+        </ul>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
+<!--
+            <div class="input-group">
+              <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
+              <span class="input-group-btn">
+                <button id="submit" class="btn btn-secondary" type="button">Search</button>
+              </span>
+            </div>
+ -->       
+        </ul>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Search</button>
+              </span>
+            </div>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Trade</a></li>
-        <li><a href="#">Trending Traders</a></li>
-        <li><a href="#">Followers</a></li>
-        <li><a href="#">Chat</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-      </ul>
-    </div>
+  </nav>
+ <div id="wrapper">
+    <!-- Sidebar -->
+ <div id="sidebar-wrapper" style="margin-top: 50px">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand">
+                      <a href="#">
+                          Account Information
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">Dashboard</a>
+                  </li>
+                  <li>
+                      <a href="#">Overview</a>
+                  </li>
+                  <li>
+                      <a href="#">Shortcuts</a>
+                  </li>
+                  <li>
+                      <a href="#">Services</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /#sidebar-wrapper -->
+
+          <!-- Page Content -->
+          <div id="page-content-wrapper">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12" style="padding-top: 20px">
+                        <div class="container-fluid text-left">
+                            <h2 style="padding-top: 15px">User Information</h2>
+                            <hr>
+                            <p><strong>Name: </strong>John Doe</p>
+                            <p><strong>Email: </strong>john.doe@email.com</p>
+                            <p><strong>Phone: </strong>(123) 456-7890</p><br>
+                            <h2>Automatic Deposit</h2>
+                            <hr>
+                            <p> *Disclaimer: This is an optional feature and will automatically draw money from your bank account every month.<br/> You can specify the amount to withdraw or let us determine how much you can afford to invest. </p>
+                            <div ng-app="">
+                                <form>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" ng-model="aut"> Yes, I want to turn on automatic deposit</label>
+                                    </div>
+                                    <div ng-show="aut">
+                                        <div class="form-group">
+                                          <label for="account">Bank account number:</label>
+                                          <input type="account" class="form-control" id="account" placeholder="Enter bank account number">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="route">Routing number:</label>
+                                          <input type="route" class="form-control" id="route" placeholder="Enter bank routing number">
+                                        </div>
+                                        <div class="checkbox">
+                                          <label><input type="checkbox" ng-model="with"> Yes, I want you to determine how much to withdraw from my bank account</label>
+                                        </div>
+                                        <div class="form-group" ng-hide="with">
+                                          <label for="amount">How much do you want to deposit monthly:</label>
+                                          <input type="amount" class="form-control" id="amount" placeholder="Place an amount">
+                                        </div>
+                                        <div class="form-group" ng-show="with">
+                                          <label for="inc">What is your average monthly income</label>
+                                          <input type="inc" class="form-control" id="inc" placeholder="Place an amount">
+                                        </div>
+                                        <div class="form-group" ng-show="with">
+                                          <label for="cost">What is your average monthly expense cost</label>
+                                          <input type="cost" class="form-control" id="cost" placeholder="Place an amount">
+                                        </div>
+                                        <div class="form-group" ng-show="aut">
+                                            <p> If you are following a trader, your automatic deposit will be invested in that, unless otherwise specified </p>
+                                            <p class="question"><strong>How would you like to invest the automatic deposits?</strong></p>
+                                            <ul class="answers">
+                                                <input type="radio" name="q1" value="a" id="q1a"><label for="q1a">In a fund that tracks the market</label><br/>
+                                                <input type="radio" name="q1" value="b" id="q1b"><label for="q1b">I'll invest it myself</label><br/>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button type="submit" onclick="loadDoc()" ng-click="show=true" class="btn btn-default">Submit</button>
+                                    <h4 ng-show="show" id="conf"></h4>
+                                </form>
+                            </div>
+                        </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /#page-content-wrapper -->
   </div>
-</nav>
-
-<div class="container-fluid text-left">
-    <h2>User Information</h2>
-    <hr>
-    <p><strong>Name: </strong>John Doe</p>
-    <p><strong>Email: </strong>john.doe@email.com</p>
-    <p><strong>Phone: </strong>(123) 456-7890</p><br>
-    <h2>Automatic Deposit</h2>
-    <hr>
-    <p> *Disclaimer: This is an optional feature and will automatically draw money from your bank account every month. You can specify the amount to withdraw or let us determine how much you can afford to invest. </p>
-    <div ng-app="">
-        <form>
-            <div class="checkbox">
-              <label><input type="checkbox" ng-model="aut"> Yes, I want to turn on automatic deposit</label>
-            </div>
-            <div ng-show="aut">
-                <div class="form-group">
-                  <label for="account">Bank account number:</label>
-                  <input type="account" class="form-control" id="account" placeholder="Enter bank account number">
-                </div>
-                <div class="form-group">
-                  <label for="route">Routing number:</label>
-                  <input type="route" class="form-control" id="route" placeholder="Enter bank routing number">
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" ng-model="with"> Yes, I want you to determine how much to withdraw from my bank account</label>
-                </div>
-                <div class="form-group" ng-hide="with">
-                  <label for="amount">How much do you want to deposit monthly:</label>
-                  <input type="amount" class="form-control" id="amount" placeholder="Place an amount">
-                </div>
-                <div class="form-group" ng-show="with">
-                  <label for="inc">What is your average monthly income</label>
-                  <input type="inc" class="form-control" id="inc" placeholder="Place an amount">
-                </div>
-                <div class="form-group" ng-show="with">
-                  <label for="cost">What is your average monthly expense cost</label>
-                  <input type="cost" class="form-control" id="cost" placeholder="Place an amount">
-                </div>
-                <div class="form-group" ng-show="aut">
-                    <p> If you are following a trader, your automatic deposit will be invested in that, unless otherwise specified </p>
-                    <p class="question"><strong>How would you like to invest the automatic deposits?</strong></p>
-                    <ul class="answers">
-                        <input type="radio" name="q1" value="a" id="q1a"><label for="q1a">In a fund that tracks the market</label><br/>
-                        <input type="radio" name="q1" value="b" id="q1b"><label for="q1b">I'll invest it myself</label><br/>
-                    </ul>
-                </div>
-            </div>
-            <button type="submit" onclick="loadDoc()" ng-click="show=true" class="btn btn-default">Submit</button>
-            <h4 ng-show="show" id="conf"></h4>
-        </form>
-    </div>
-</div>
-
+  <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -116,7 +172,6 @@ function loadDoc() {
   xhttp.open("GET", "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db?key=1c992b3dfb6d8e0ad2813cd37101e228", true);
   xhttp.send();
 }
-
 function postMethod2(num) {
     xhr = new XMLHttpRequest();
     var url = "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db/withdrawals?key=1c992b3dfb6d8e0ad2813cd37101e228";
@@ -130,7 +185,6 @@ function postMethod2(num) {
     var data = JSON.stringify({"medium": "balance","amount": num});
     xhr.send(data);
 }
-
 </script>
 </body>
 </html>
