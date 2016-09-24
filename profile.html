@@ -93,11 +93,6 @@
     </div>
 </div>
 
-<div class="footer navbar-fixed-bottom">
-    <footer class="container-fluid text-center">
-        <p>Footer Text</p>
-    </footer>
-</div>
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -123,7 +118,6 @@ function loadDoc() {
 }
 
 function postMethod2(num) {
-    alert("Starting");
     xhr = new XMLHttpRequest();
     var url = "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db/withdrawals?key=1c992b3dfb6d8e0ad2813cd37101e228";
     xhr.open("POST", url, true);
