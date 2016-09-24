@@ -38,6 +38,9 @@ footer {
   .row.content {height:auto;}
 }
 
+#col-sm-8 {
+    text-align: right;
+}
 table {
 font-family: arial, sans-serif;
 border-collapse: collapse;

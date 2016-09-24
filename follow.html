@@ -35,7 +35,7 @@
                 <button id="submit" class="btn btn-secondary" type="button">Search</button>
               </span>
             </div>
- -->       
+ -->
         </ul>
         <div class="row" style="padding-right:30px">
           <div class="col-lg-3">
@@ -103,6 +103,19 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
   });
+  </script>
+  <script>
+      $(document).ready(function () {
+          yourFunction();
+      });
+  function yourFunction(){
+   //some code
+   var curr = document.getElementById("port").value;
+   alert(curr);
+   //var nw = localStorage.getItem("portValue");
+   //alert(Number(nw).toFixed(2) + curr);
+   document.getElementById("port").innerHTML = Number(nw) + curr;
+  }
   </script>
 </body>
 </html>
