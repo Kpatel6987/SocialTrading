@@ -14,159 +14,165 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Trade</a></li>
-        <li><a href="tt.html">Trending Traders</a></li>
-        <li><a href="follow.html">Followers</a></li>
-        <li><a href="chat.html">Chat</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <div class="input-group">
-            <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
-            <span class="input-group-btn">
-              <button id="submit" class="btn btn-primary" type="button">Search</button>
-            </span>
-          </div>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!--
-<div class="container-fluid text-center">
-    <div class="input-group">
-        <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
-        <span class="input-group-btn">
-            <button id="submit" class="btn btn-primary" type="button">Search</button>
-        </span>
-    </div>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>As Of Date</th>
-              <th>1 Day</th>
-              <th>1 Month</th>
-              <th>1 Year</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="description">-</td>
-              <td id="asOfDate">-</td>
-              <td id="oneDay">-</td>
-              <td id="oneMonth">-</td>
-              <td id="oneYear">-</td>
-            </tr>
-          </tbody>
-        </table>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
       </div>
-  <div class="row content">
-    <div class="col-sm-2 sidenav text-left">
-        <div class="panel panel-default">
-            <div class="panel-heading"><h3>Account Information</h3></div>
-            <div class="panel-body">
-                <p> Value of Shares: $100  (+5%)</p> <br>
-                <p> Cash in Account: $10 </p> <br>
-                <p> Total Equity: $110 </p>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Trade</a></li>
+          <li><a href="tt.html">Trending Traders</a></li>
+          <li><a href="follow.html">Followers</a></li>
+          <li><a href="chat.html">Chat</a></li>
+        </ul>
+
+<!--
+            <div class="input-group">
+              <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
+              <span class="input-group-btn">
+                <button id="submit" class="btn btn-secondary" type="button">Search</button>
+              </span>
             </div>
+ -->       
+        </ul>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Search</button>
+              </span>
+            </div>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          </ul>
         </div>
+      </div>
     </div>
-    <div class="col-sm-8 text-left">
-      <h1>Positions</h1>
-      <table>
-          <tr>
-            <th>Stock</th>
-            <th>Shares</th>
-            <th>Current Price</th>
-            <th>P/L Day</th>
-            <th>P/L Open</th>
-            <th>Percent Gain</th>
-          </tr>
-          <tr>
-            <td>AAPL</td>
-            <td>5</td>
-            <td>112.32</td>
-            <td>1.20</td>
-            <td>20.00</td>
-            <td>21.7%</td>
-          </tr>
-          <tr>
+  </nav>
+  <!--
+  <div class="container-fluid text-center">
+      <div class="input-group">
+          <input id="search" type="search" class="form-control" placeholder="Search..." value="blackrock assetType:Stock">
+          <span class="input-group-btn">
+              <button id="submit" class="btn btn-primary" type="button">Search</button>
+          </span>
+      </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>As Of Date</th>
+                <th>1 Day</th>
+                <th>1 Month</th>
+                <th>1 Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="description">-</td>
+                <td id="asOfDate">-</td>
+                <td id="oneDay">-</td>
+                <td id="oneMonth">-</td>
+                <td id="oneYear">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    <div class="row content">
+      <div class="col-sm-2 sidenav text-left">
+          <div class="panel panel-default">
+              <div class="panel-heading"><h3>Account Information</h3></div>
+              <div class="panel-body">
+                  <p> Value of Shares: $100  (+5%)</p> <br>
+                  <p> Cash in Account: $10 </p> <br>
+                  <p> Total Equity: $110 </p>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-8 text-left">
+        <h1>Positions</h1>
+        <table>
+            <tr>
+              <th>Stock</th>
+              <th>Shares</th>
+              <th>Current Price</th>
+              <th>P/L Day</th>
+              <th>P/L Open</th>
+              <th>Percent Gain</th>
+            </tr>
+            <tr>
               <td>AAPL</td>
               <td>5</td>
               <td>112.32</td>
               <td>1.20</td>
               <td>20.00</td>
               <td>21.7%</td>
-          </tr>
-        </table>
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
+            </tr>
+            <tr>
+                <td>AAPL</td>
+                <td>5</td>
+                <td>112.32</td>
+                <td>1.20</td>
+                <td>20.00</td>
+                <td>21.7%</td>
+            </tr>
+          </table>
+        <hr>
+        <h3>Test</h3>
+        <p>Lorem ipsum...</p>
+      </div>
+
     </div>
-
   </div>
-</div>
--->
-<div id="wrapper">
-  <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Account Information
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+  -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+          <div id="sidebar-wrapper">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand">
+                      <a href="#">
+                          Account Information
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">Dashboard</a>
+                  </li>
+                  <li>
+                      <a href="#">Overview</a>
+                  </li>
+                  <li>
+                      <a href="#">Shortcuts</a>
+                  </li>
+                  <li>
+                      <a href="#">Services</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
+          <!-- Page Content -->
+          <div id="page-content-wrapper">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <h1>Simple Sidebar</h1>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-</div>
-<div class="footer navbar-fixed-bottom">
-    <footer class="container-fluid text-center">
-        <p>Footer Text</p>
-    </footer>
-</div>
-    <script>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /#page-content-wrapper -->
+  </div>
+  <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-    </script>
+  </script>
 </body>
 </html>

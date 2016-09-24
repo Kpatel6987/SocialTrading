@@ -19,7 +19,8 @@
 }
 
 .input-group {
-  padding-left: 500px;
+  padding: 0px;
+  margin: 0px;
 }
 /* Set black background color, white text and some padding */
 footer {
@@ -55,10 +56,4 @@ tr:nth-child(even) {
 
 #input {
     padding-top: 10px;
-}
-
-
-.chatFrame {
-  padding: 0px;
-  margin: 0px;
 }
