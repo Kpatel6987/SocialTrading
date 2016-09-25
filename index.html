@@ -135,9 +135,41 @@
                                 <td>18.6%</td>
                             </tr>
                           </table></div>
-
+                          <div class="col-sm-8 text-left"> <hr>
+                              <h1>Trade Stocks</h1>
+                          <form>
+                              <div class="form-group">
+                                <label for="account">What Stock?</label>
+                                <input type="account" class="form-control" id="account" placeholder="Enter Stock Ticker">
+                              </div>
+                              <div id="tradeopt" style="text-align:left">
+                                  Buy or Sell?
+                                  <select ng-model="trade">
+                                      <option value="">
+                                      <option value="buy">Buy
+                                      <option value="sell">Sell
+                                  </select>
+                                  How Many Shares?
+                                  <select ng-model="shares">
+                                      <option value="">
+                                      <option value="one">1
+                                      <option value="two">2
+                                      <option value="three">3
+                                      <option value="four">4
+                                      <option value="five">5
+                                  </select>
+                                  <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
+                              </div>
+                          </form> </div>
+                          <div class="col-sm-8 text-left"> <hr>
+                          <h1>Monitor Stocks</h1>
+                          <label id="tick" for="graph">Compare the returns of stocks</label>
+                          <input type="account" class="form-control" id="account" placeholder="Enter Stock Tickers separated by commas. E.g. AAPL,MSFT">
+                          <button type="button" id="clicker" class="btn btn-primary">Compare</button>
+                      </div>
                       <div id="container" style="height: 400px; min-width: 310px; min-height:400px; display:block;"></div>
-                  </div>
+
+                      </div>
               </div>
           </div>
           <!-- /#page-content-wrapper -->
@@ -164,6 +196,8 @@
           document.getElementById("stockVal").innerHTML = stockVal;
           document.getElementById("cashVal").innerHTML = cashVal;
       }
+  </script>
+  
   </script>
 </body>
 </html>

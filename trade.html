@@ -9,11 +9,10 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="./js/blackrock.js"></script>
+  <script src=<script src="./js/blackrock.js"></script></script>
   <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
   <script src="./js/script.js"></script>
-  <script src="./js/chart.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
@@ -114,29 +113,8 @@
                                   <button id="submit" class="btn btn-primary" type="button">Search</button>
                               </span>
                           </div>
-                            <div class="table-responsive">
-                              <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th>Description</th>
-                                    <th>As Of Date</th>
-                                    <th>1 Day</th>
-                                    <th>1 Month</th>
-                                    <th>1 Year</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td id="description">-</td>
-                                    <td id="asOfDate">-</td>
-                                    <td id="oneDay">-</td>
-                                    <td id="oneMonth">-</td>
-                                    <td id="oneYear">-</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <h1 ng-bind="desc"></h1>
+                           <div id="sortacontainer" style="height: 400px; min-width: 310px; min-height:400px; display:block;"></div>
+                            <h1 id="quote" ng-bind="desc"></h1>
 
                             <form>
                                 <div id="tradeopt" style="text-align:left">
@@ -186,6 +164,37 @@
       document.getElementById("equity").innerHTML = equity;
       document.getElementById("stockVal").innerHTML = stockVal;
       document.getElementById("cashVal").innerHTML = cashVal;
+  </script>
+  <script>
+  $(function() {
+   data : {
+    var Aladdin = new blk.API();
+    Aladdin.performanceData({
+      identifiers: 'AAPL'
+    }, function(data) {
+      $('#sortacontainer').highcharts('StockChart', {
+        rangeSelector: {
+          selected: 5
+        },
+        title: {
+          text: data.resultMap.RETURNS.map(function(returns) {
+            return returns.ticker
+          }).join('/') + ' Stock Return ($100 Investment)'
+        },
+        series: data.resultMap.RETURNS.map(function(returns) {
+          return {
+            name: returns.ticker,
+            data: returns.performanceChart.map(function(point) {
+              return [point[0], point[1] * 100]
+            }),
+            tooltip: {
+              valueDecimals: 2
+            }
+          }
+        })
+      });
+    });
+  });
   </script>
 </body>
 </html>
