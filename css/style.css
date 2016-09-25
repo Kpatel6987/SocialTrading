@@ -50,7 +50,7 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
+tr{
     background-color: #dddddd;
 }
 
@@ -83,6 +83,9 @@ input.transparent-input {
 ::-webkit-input-placeholder {
     color: #a7aabc;
     font-weight: 200;
+}
+.sidebar-brand {
+    color: #a7aabc;
 }
 
 .lt-ie9 .input-group input { line-height: 26px }
