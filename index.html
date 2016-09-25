@@ -108,7 +108,7 @@
                       </div>
                       <div class="col-sm-8 text-left" style="padding-top: 20px">
                         <h1>Positions</h1>
-                        <table class="table table-striped">
+                        <table id="myTable" class="table table-striped">
                             <tr>
                               <th>Stock</th>
                               <th>Shares</th>
@@ -138,24 +138,24 @@
                               <h1>Trade Stocks</h1>
                           <form>
                               <div class="form-group">
-                                <label for="account">What Stock?</label>
-                                <input type="account" class="form-control" id="account" placeholder="Enter Stock Ticker">
+                                <label for="stock">What Stock?</label>
+                                <input type="stock" class="form-control" id="account" placeholder="Enter Stock Ticker">
                               </div>
                               <div id="tradeopt" style="text-align:left">
                                   Buy or Sell?
-                                  <select ng-model="trade">
+                                  <select ng-model="trade" id="trade">
                                       <option value="">
                                       <option value="buy">Buy
                                       <option value="sell">Sell
                                   </select>
                                   How Many Shares?
-                                  <select ng-model="shares">
+                                  <select ng-model="shares" id="count">
                                       <option value="">
-                                      <option value="one">1
-                                      <option value="two">2
-                                      <option value="three">3
-                                      <option value="four">4
-                                      <option value="five">5
+                                      <option value="1">1
+                                      <option value="2">2
+                                      <option value="3">3
+                                      <option value="4">4
+                                      <option value="5">5
                                   </select>
                                   <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
                               </div>
@@ -163,7 +163,7 @@
                           <div class="col-sm-8 text-left"> <hr>
                           <h1>Monitor Stocks</h1>
                           <label id="tick" for="graph">Compare the returns of stocks</label>
-                          <input type="account" class="form-control" id="account" placeholder="Enter Stock Tickers separated by commas. E.g. AAPL,MSFT">
+                          <input type="acc" class="form-control" id="acc" placeholder="Enter Stock Tickers separated by commas. E.g. AAPL,MSFT">
                           <button type="button" id="clicker" class="btn btn-primary">Compare</button>
                       </div>
                       <div id="container" style="height: 400px; min-width: 310px; min-height:400px; display:block;"></div>
@@ -180,23 +180,64 @@
     });
   </script>
   <script>
-      if (!localStorage.equity){
+      //if (!localStorage.equity){
           var temp = document.getElementById("equity").innerHTML;
           var tem = document.getElementById("stockVal").innerHTML;
           var te = document.getElementById("cashVal").innerHTML;
           localStorage.setItem("equity", temp);
           localStorage.setItem("stockVal", tem);
           localStorage.setItem("cashVal", te);
-      } else {
-          var equity = localStorage.getItem("equity");
-          var stockVal = localStorage.getItem("stockVal");
-          var cashVal = localStorage.getItem("cashVal");
-          document.getElementById("equity").innerHTML = equity;
-          document.getElementById("stockVal").innerHTML = stockVal;
-          document.getElementById("cashVal").innerHTML = cashVal;
-      }
+    //   } else {
+    //       var equity = localStorage.getItem("equity");
+    //       var stockVal = localStorage.getItem("stockVal");
+    //       var cashVal = localStorage.getItem("cashVal");
+    //       document.getElementById("equity").innerHTML = equity;
+    //       document.getElementById("stockVal").innerHTML = stockVal;
+    //       document.getElementById("cashVal").innerHTML = cashVal;
+    //   }
   </script>
+  <script>
+    function validate() {
+        var answer = document.getElementById("trade").value;
+        var table = document.getElementById("myTable");
+        if (answer == "buy") {
+            var row = table.insertRow(-1);
+            var stock = document.getElementById("account").value;
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            cell1.innerHTML = stock;
+            cell2.innerHTML = document.getElementById("count").value;
+            cell4.innerHTML = 0;
+            cell5.innerHTML = 0;
+            cell6.innerHTML = 0;
+            if (stock == "NVDA") {
+                var price = "64.95";
+                cell3.innerHTML = price;
+            } else if (stock == "MSFT") {
+                var price = "57.43"
+                cell3.innerHTML = price;
+            }
+            price = Number (price);
+            var count = document.getElementById("count").value;
+            count = Number(count);
+            var newCost = (price * count ).toFixed(2);
+            var stockVal = localStorage.getItem("stockVal");
+            var cashVal = localStorage.getItem("cashVal");
+            stockVal = Number(stockVal);
+            cashVal = Number(cashVal);
+            var stock = (Number)(stockVal) + (Number)(newCost);
+            var cash = (Number)(cashVal) - (Number)(newCost);
+            document.getElementById("stockVal").innerHTML = stock;
+            document.getElementById("cashVal").innerHTML = cash;
 
+        } else if (answer == "sell") {
+
+        }
+    }
   </script>
 </body>
 </html>

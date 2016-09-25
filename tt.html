@@ -263,5 +263,13 @@
       $("#wrapper").toggleClass("toggled");
   });
   </script>
+  <script>
+      var equity = localStorage.getItem("equity");
+      var stockVal = localStorage.getItem("stockVal");
+      var cashVal = localStorage.getItem("cashVal");
+      document.getElementById("equity").innerHTML = equity;
+      document.getElementById("stockVal").innerHTML = stockVal;
+      document.getElementById("cashVal").innerHTML = cashVal;
+  </script>
 </body>
 </html>
