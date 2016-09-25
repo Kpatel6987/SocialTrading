@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-  <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
+  <script src="./js/blackrock.js"></script>
   <script src="./js/script.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -116,6 +116,14 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
   });
+  </script>
+  <script>
+      var equity = localStorage.getItem("equity");
+      var stockVal = localStorage.getItem("stockVal");
+      var cashVal = localStorage.getItem("cashVal");
+      document.getElementById("equity").innerHTML = equity;
+      document.getElementById("stockVal").innerHTML = stockVal;
+      document.getElementById("cashVal").innerHTML = cashVal;
   </script>
 </body>
 </html>

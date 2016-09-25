@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-  <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
+  <script src="./js/blackrock.js"></script>
   <script src="./js/script.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -111,50 +111,62 @@
                         </div>
                         <div class="col-sm-16">
                               <table class="table table-striped">
-                                  <tr>
+                                   <tr>
                                     <th>Name</th>
                                     <th>Followers</th>
-                                    <th>View</th>
+                                    <th>Total Return on Investments</th>
+                                    <th>Points</th>
+                                    <th>Profile Options</th>
                                   </tr>
                                   <tr>
-                                    <td>Harambe</td>
-                                    <td>5000000</td>
-                                    <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
+                                    <td>John Doe</td>
+                                    <td>10</td>
+                                    <td>$500</td>
+                                    <td>150</td>
+                                    <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                   </tr>
                                   <tr>
-                                      <td>Pepe</td>
-                                      <td>800000</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
+                                      <td>Mary Sue</td>
+                                      <td>12</td>
+                                      <td>$100</td>
+                                      <td>75</td>
+                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                   </tr>
                                    <tr>
-                                      <td>Steve Jobs</td>
-                                      <td>2000</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
+                                      <td>Albert Camus</td>
+                                      <td>45</td>
+                                      <td>$1000</td>
+                                      <td>350</td>
+                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                   </tr>
                                   <tr>
-                                      <td>Bill Gates</td>
-                                      <td>1999</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
+                                      <td>Herman Hesse</td>
+                                      <td>3</td>
+                                      <td>$30</td>
+                                      <td>20</td>
+                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                   </tr>
                                   <tr>
-                                      <td>Linus Torvalds</td>
-                                      <td>1998</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Richard Stallman</td>
-                                      <td>1997</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Gabe Newell</td>
-                                      <td>1996</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Filthy Frank</td>
-                                      <td>50</td>
-                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button></td>
+                                      <td>Lionel Coinbank</td>
+                                      <td>44</td>
+                                      <td>$1500</td>
+                                      <td>351</td>
+                                      <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                   </tr>
                                 </table>
                             </div>
@@ -170,13 +182,12 @@
   });
   </script>
   <script>
-   //some code
-   // var curr = document.getElementById("port").value;
-   // alert(curr);
-   var nw = localStorage.getItem("portValue");
-   //alert(Number(nw).toFixed(2));
-   //document.getElementById("port").innerHTML = Number(nw) + curr;
-
+      var equity = localStorage.getItem("equity");
+      var stockVal = localStorage.getItem("stockVal");
+      var cashVal = localStorage.getItem("cashVal");
+      document.getElementById("equity").innerHTML = equity;
+      document.getElementById("stockVal").innerHTML = stockVal;
+      document.getElementById("cashVal").innerHTML = cashVal;
   </script>
 </body>
 </html>
