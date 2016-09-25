@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-  <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
+  <script src="./js/blackrock.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="./js/script.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
@@ -82,15 +82,15 @@
                <table id="overview">
                    <tr>
                      <th>Total Equity: </th>
-                     <td id="equity">10000</td>
+                     <td id="equity"></td>
                    </tr>
                    <tr>
                      <th>Stock Value: </th>
-                     <td id="stockVal">0</td>
+                     <td id="stockVal"></td>
                    </tr>
                    <tr>
                      <th>Cash Value: </th>
-                     <td id="cashVal">10000</td>
+                     <td id="cashVal"></td>
                    </tr>
                </table>
            </div>
@@ -169,6 +169,14 @@
         $("#wrapper").toggleClass("toggled");
     });
   </script>
+  <script>
+      var equity = localStorage.getItem("equity");
+      var stockVal = localStorage.getItem("stockVal");
+      var cashVal = localStorage.getItem("cashVal");
+      document.getElementById("equity").innerHTML = equity;
+      document.getElementById("stockVal").innerHTML = stockVal;
+      document.getElementById("cashVal").innerHTML = cashVal;
+  </script>
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -184,6 +192,7 @@ function loadDoc() {
         var num = (netProfit * .2).toFixed(2);
         localStorage.setItem("portValue", num.toString());
         postMethod2(num);
+        num = (num * 2).toFixed(2);
         document.getElementById("conf").innerHTML = "Withdraw Successful! Your new At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
         } else if (netProfit < 0) {
         document.getElementById("conf").innerHTML = "Your expenses are too high to automatically invest";
@@ -194,6 +203,7 @@ function loadDoc() {
   xhttp.send();
 }
 function postMethod2(num) {
+    newSetter();
     xhr = new XMLHttpRequest();
     var url = "http://api.reimaginebanking.com/accounts/57e695d2dbd83557146123db/withdrawals?key=1c992b3dfb6d8e0ad2813cd37101e228";
     xhr.open("POST", url, true);
@@ -205,6 +215,16 @@ function postMethod2(num) {
     }
     var data = JSON.stringify({"medium": "balance","amount": num});
     xhr.send(data);
+}
+function newSetter() {
+    var currEq = localStorage.getItem("equity");
+    var newEq = localStorage.getItem("portValue");
+    var currCash = localStorage.getItem("cashVal");
+    localStorage.setItem("equity", ((Number(currEq)) + (Number(newEq))).toFixed(2));
+    localStorage.setItem("cashVal", ((Number(currCash)) + (Number(newEq))).toFixed(2));
+    document.getElementById("equity").innerHTML = localStorage.getItem("equity");
+    document.getElementById("cashVal").innerHTML = localStorage.getItem("cashVal");
+    return;
 }
 </script>
 </body>
