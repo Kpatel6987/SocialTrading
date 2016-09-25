@@ -1,12 +1,12 @@
 $(function() {
     var ticker = $('#a').attr('id')+","+ $('#b').attr('id');
-// $().ajax({
-//     url : "https://www.blackrock.com/tools/json/performance",
-//     method : "GET",
-//     data : {
-//     }
-//
-// });
+$().ajax({
+    url : "https://www.blackrock.com/tools/json/performance",
+    method : "GET",
+    data : {
+    }
+
+});
 
 
 
