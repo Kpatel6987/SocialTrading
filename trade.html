@@ -19,77 +19,65 @@
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
-          </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="trade.html">Trade</a></li>
-                <li><a href="tt.html">Trending Traders</a></li>
-                <li><a href="follow.html">Followers</a></li>
-                <li><a href="chat.html">Chat</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
-              </ul>
-              <div class="row" style="padding-right:30px">
-                <div class="col-lg-4" style="padding-top:7px">
-                  <div class="input-group">
-                    <input id="search" type="search" class="form-control transparent-input" placeholder="Search for a company!">
-                      <span class="input-group-btn">
-                        <button id="submit" class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-search"</span></button>
-                      </span>
-                  </div>
-                <div class="results table-responsive">
-                  <table class="table table-striped">
-                    <tr>
-                      <th>Description</th>
-                      <th>As Of Date</th>
-                      <th>1 Day</th>
-                      <th>1 Month</th>
-                      <th>1 Year</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="description">-</td>
-                      <td id="asOfDate">-</td>
-                      <td id="oneDay">-</td>
-                      <td id="oneMonth">-</td>
-                      <td id="oneYear">-</td>
-                    </tr>
-                  </tbody>
-                  </table>
-                </div>
-              </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="#">Trade</a></li>
+          <li><a href="tt.html">Trending Traders</a></li>
+          <li><a href="follow.html">Followers</a></li>
+          <li><a href="chat.html">Chat</a></li>
+        </ul>
+
+        </ul>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Search</button>
+              </span>
             </div>
           </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
 <div id="wrapper">
     <!-- Sidebar -->
            <div id="sidebar-wrapper" style="margin-top: 50px">
               <ul class="sidebar-nav">
                   <li class="sidebar-brand">
-                      <a href="#">
-                          Account Information
-                      </a>
+                      <strong>Welcome </strong>
                   </li>
                   <li>
                       <a href="#">Dashboard</a>
                   </li>
                   <li>
-                      <a href="#">Overview</a>
-                  </li>
-                  <li>
-                      <a href="#">Shortcuts</a>
-                  </li>
-                  <li>
-                      <a href="#">Services</a>
+                      <a data-toggle="collapse" href="#collapse1">Overview</a>
+                      <div id="collapse1" class="panel-collapse collapse">
+                      <table id="overview">
+                          <tr>
+                            <th>Total Equity: </th>
+                            <td id="equity">10000</td>
+                          </tr>
+                          <tr>
+                            <th>Stock Value: </th>
+                            <td id="stockVal">0</td>
+                          </tr>
+                          <tr>
+                            <th>Cash Value: </th>
+                            <td id="cashVal">10000</td>
+                          </tr>
+                      </table>
+                  </div>
                   </li>
               </ul>
           </div>
@@ -99,16 +87,6 @@
           <div id="page-content-wrapper">
               <div class="container-fluid">
                   <div class="row">
-                      <div class="col-sm-2" style="padding-top: 20px">
-                          <div class="panel panel-default">
-                              <div class="panel-heading"><h3>Account Information</h3></div>
-                              <div class="panel-body">
-                                  <p> Value of Shares: $100  (+5%)</p> <br>
-                                  <p> Cash in Account: $10 </p> <br>
-                                  <p> Total Equity: $110 </p>
-                              </div>
-                          </div>
-                      </div>
                       <div class="container-fluid text-center" style="padding-top: 100px" ng-app="">
                           <div class="input-group">
                               <input id="search" ng-model="desc" type="search" class="form-control" placeholder="Search..." value="AAPL">
@@ -140,6 +118,27 @@
                             </div>
                             <h1 ng-bind="desc"></h1>
 
+                            <form>
+                                <div id="tradeopt" style="text-align:left">
+                                    Buy or Sell?
+                                    <select ng-model="trade">
+                                        <option value="">
+                                        <option value="buy">Buy
+                                        <option value="sell">Sell
+                                    </select>
+                                    How Many Shares?
+                                    <select ng-model="shares">
+                                        <option value="">
+                                        <option value="one">1
+                                        <option value="two">2
+                                        <option value="three">3
+                                        <option value="four">4
+                                        <option value="five">5
+                                    </select>
+                                    <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
+                                </div>
+                            </form>
+
                         </div>
 
                   </div>
@@ -155,6 +154,10 @@
   </script>
 
   <script type="text/javascript" src="jquery-1.5.1.js"></script>
+  <script>
+      function validate() {
 
+      }
+  </script>
 </body>
 </html>

@@ -67,27 +67,35 @@
     </nav>
   <div id="wrapper">
     <!-- Sidebar -->
-   <div id="sidebar-wrapper" style="margin-top: 50px">
-              <ul class="sidebar-nav">
-                  <li class="sidebar-brand">
-                      <a href="#">
-                          Account Information
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">Dashboard</a>
-                  </li>
-                  <li>
-                      <a href="#">Overview</a>
-                  </li>
-                  <li>
-                      <a href="#">Shortcuts</a>
-                  </li>
-                  <li>
-                      <a href="#">Services</a>
-                  </li>
-              </ul>
-          </div>
+    <div id="sidebar-wrapper" style="margin-top: 50px">
+       <ul class="sidebar-nav">
+           <li class="sidebar-brand">
+               <strong>Welcome </strong>
+           </li>
+           <li>
+               <a href="#">Dashboard</a>
+           </li>
+           <li>
+               <a data-toggle="collapse" href="#collapse1">Overview</a>
+               <div id="collapse1" class="panel-collapse collapse">
+               <table id="overview">
+                   <tr>
+                     <th>Total Equity: </th>
+                     <td id="equity">10000</td>
+                   </tr>
+                   <tr>
+                     <th>Stock Value: </th>
+                     <td id="stockVal">0</td>
+                   </tr>
+                   <tr>
+                     <th>Cash Value: </th>
+                     <td id="cashVal">10000</td>
+                   </tr>
+               </table>
+           </div>
+           </li>
+       </ul>
+   </div>
           <!-- /#sidebar-wrapper -->
 
           <!-- Page Content -->
@@ -102,7 +110,7 @@
                             </div>
                         </div>
                         <div class="col-sm-16">
-                              <table>
+                              <table class="table table-striped">
                                   <tr>
                                     <th>Name</th>
                                     <th>Followers</th>
@@ -162,17 +170,13 @@
   });
   </script>
   <script>
-      $(document).ready(function () {
-          yourFunction();
-      });
-  function yourFunction(){
    //some code
-   var curr = document.getElementById("port").value;
-   alert(curr);
-   //var nw = localStorage.getItem("portValue");
-   //alert(Number(nw).toFixed(2) + curr);
-   document.getElementById("port").innerHTML = Number(nw) + curr;
-  }
+   // var curr = document.getElementById("port").value;
+   // alert(curr);
+   var nw = localStorage.getItem("portValue");
+   //alert(Number(nw).toFixed(2));
+   //document.getElementById("port").innerHTML = Number(nw) + curr;
+
   </script>
 </body>
 </html>
