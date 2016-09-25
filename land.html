@@ -2,38 +2,100 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="vendors/jquery.easings.min.js"></script>
     <script type="text/javascript" src="jquery.fullPage.js"></script>
-    <script src="particles.js"></script>
+    <script type="text/javascript" src="../jquery.fullPage.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#fullpage').fullpage({
-                menu: '#menu',
-                verticalCentered: true,
-                sectionsColor: ['#A37372', '#8AA372', '#72A3A3', 'whitesmoke', '#000'],
+            $('#fullpage').fullpage({ 
+                sectionsColor: ['#A37372', '#8AA372', '#72A3A3', '#8B72A3', 'whitesmoke', '#000'],
+                fterRender: function(){
+
+
+                    //playing the video
+                    $('video').get(0).play();
+                }
             });
         });
     </script>
     <style>
-        .section{
-            font-size: 2em;
-            text-align: center;
-        }
+
+        /* Style for our header texts
+    * --------------------------------------- */
+    h1{
+        font-size: 5em;
+        font-family: arial,helvetica;
+        color: #fff;
+        margin:0;
+        padding:0;
+    }
+
+    /* Centered texts in each section
+    * --------------------------------------- */
+    .section{
+        text-align:center;
+        font-size: 2em;
+        overflow: hidden;
+    }
+
+    #myVideo{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top:0;
+        right:0;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-color: black; /* in case the video doesn't fit the whole page*/
+        background-image: /* our video */;
+        background-position: center center;
+        background-size: contain;
+        object-fit: cover; /*cover video background */
+        z-index:3;
+    }
+
+
+
+    /* Layer with position absolute in order to have it over the video
+    * --------------------------------------- */
+    #section0 .layer{
+        position: absolute;
+        z-index: 4;
+        width: 100%;
+        left: 0;
+        top: 43%;
+    }
+
+    /*solves problem with overflowing video in Mac with Chrome */
+    #section0{
+        overflow: hidden;
+    }
     </style>
 </head>
 
 <body>
     <div id="fullpage">
-        <div class="section">
-            <div id="particles-js"></div>
+        <div class="section " id="section0">
+        <video autoplay loop muted="img/a.mp4" id="myVideo">
+            <source src="img/a.webm" type="video/webm">
+        </video>
+        <div class="layer">
+            <h1>tradr</h1>
+            <h2 class="active"><a href="index.html">ENTER LIVE DEMO</a></h2>
         </div>
+    </div>
         <div class="section"><h1>About Us</h1>
-        <p>We, in essence, are whayt we like to call a Social Trading Platform
+        <p>We, in essence, are what we like to call a Social Trading Platform
         , or STP, for short.</p>
         </div>
-        <div class="section">Section 3</div>
+        <div class="section"><h1>Applications</h1></div>
+        <div class="section"><h1>Contact Info</h1></div>
     </div>            
 </body> 
 </html>
