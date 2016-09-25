@@ -8,11 +8,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-  <script src="./js/blackrock.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+  <script src="./js/script.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/simple-sidebar.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+
+
+             <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+      title:{
+        text: "Top U.S Smartphone Operating Systems By Market Share, Q3 2012"
+      },
+      data: [
+      {
+       type: "doughnut",
+       dataPoints: [
+       {  y: 53.37, indexLabel: "Android" },
+       {  y: 35.0, indexLabel: "Apple iOS" },
+       {  y: 7, indexLabel: "Blackberry" },
+       {  y: 2, indexLabel: "Windows Phone" },
+       {  y: 5, indexLabel: "Others" }
+       ]
+     }
+     ]
+   });
+
+    chart.render();
+  }
+  </script>
+  <script type="text/javascript" src="./js/canvasjs.min.js"></script></head>
+          </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -82,15 +111,15 @@
                <table id="overview">
                    <tr>
                      <th>Total Equity: </th>
-                     <td id="equity"></td>
+                     <td id="equity">10000</td>
                    </tr>
                    <tr>
                      <th>Stock Value: </th>
-                     <td id="stockVal"></td>
+                     <td id="stockVal">0</td>
                    </tr>
                    <tr>
                      <th>Cash Value: </th>
-                     <td id="cashVal"></td>
+                     <td id="cashVal">10000</td>
                    </tr>
                </table>
            </div>
@@ -98,50 +127,26 @@
        </ul>
    </div>
           <!-- /#sidebar-wrapper -->
-          <!-- Modal -->
-            <div class="modal fade" id="topModal" role="dialog">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Financial Overview</h4>
-                  </div>
-                  <div class="modal-body">
-                    <canvas id="countries" width="600" height="400"></canvas>
-                  <script>
-                  var pieData = [
-                      {
-                          value: 20,
-                          color:"#878BB6"
-                      },
-                      {
-                          value : 40,
-                          color : "#4ACAB4"
-                      },
-                      {
-                          value : 10,
-                          color : "#FF8153"
-                      },
-                      {
-                          value : 30,
-                          color : "#FFEA88"
-                      }
-                  ];
-                  // Get the context of the canvas element we want to select
-                  var countries= document.getElementById("countries").getContext("2d");
-                  new Chart(countries).Pie(pieData);
-              </script>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+ <!-- Modal -->
+  <div class="modal fade" id="topModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Financial Overview</h4>
+        </div>
+        <div class="modal-body">
+            <div id="chartContainer" style="height: 200px; width: 250px;"> </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
           <!-- Page Content -->
           <div id="page-content-wrapper">
               <div class="container-fluid">
@@ -153,97 +158,86 @@
                                     <th>Rank</th>
                                     <th>Name</th>
                                     <th>Followers</th>
-                                    <th>Total Return on Investments</th>
-                                    <th>Points</th>
-                                    <th>Profile Options</th>
+                                    <th>View</th>
                                   </tr>
                                   <tr>
                                     <td>1</td>
                                     <td>Harambe</td>
                                     <td>5000000</td>
-                                    <td>120%</td>
-                                    <td>50000001</td>
-                                    <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
+                                    <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#topModal">View</button>
                                         <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
                                         <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                    </td>
                                     </td>
                                   </tr>
                                   <tr>
                                       <td>2</td>
                                       <td>Pepe</td>
                                       <td>800000</td>
-                                      <td>112%</td>
-                                      <td>40000001</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                    <tr>
                                       <td>3</td>
                                       <td>Steve Jobs</td>
                                       <td>2000</td>
-                                      <td>110%</td>
-                                      <td>60001</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                   <tr>
                                       <td>4</td>
                                       <td>Bill Gates</td>
                                       <td>1999</td>
-                                      <td>107%</td>
-                                      <td>19595</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                   <tr>
                                       <td>5</td>
                                       <td>Linus Torvalds</td>
                                       <td>1998</td>
-                                      <td>103%</td>
-                                      <td>9001</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                   <tr>
                                       <td>6</td>
                                       <td>Richard Stallman</td>
                                       <td>1997</td>
-                                      <td>87%</td>
-                                      <td>60001</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                   <tr>
                                       <td>7</td>
-                                      <<td>Gabe Newell</td>
+                                      <td>Gabe Newell</td>
                                       <td>1996</td>
-                                      <td>80%</td>
-                                      <td>3333</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
                                     </td>
+                                      </td>
                                   </tr>
                                   <tr>
                                       <td>8</td>
-                                      <td>Jon Snow</td>
-                                      <td>50</td>
-                                      <td>60%</td>
-                                      <td>50</td>
+                                      <td>Filthy Frank</td>
+                                      <td>1</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
-                                          <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
-                                          <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
-                                    </td>
+                                        <button type="Up" onclick="#" ng-click="#" class="btn btn-default">Upvote</button>
+                                        <button type="Down" onclick="#" ng-click="#" class="btn btn-default">Downvote</button>
+                                      </td>
                                   </tr>
                                 </table>
                             </div>
@@ -256,18 +250,6 @@
 
   </div>
   <script>
-  $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-  });
-  </script>
-  <script>
-      var equity = localStorage.getItem("equity");
-      var stockVal = localStorage.getItem("stockVal");
-      var cashVal = localStorage.getItem("cashVal");
-      document.getElementById("equity").innerHTML = equity;
-      document.getElementById("stockVal").innerHTML = stockVal;
-      document.getElementById("cashVal").innerHTML = cashVal;
   </script>
 </body>
 </html>
