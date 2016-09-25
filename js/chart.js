@@ -1,7 +1,8 @@
 $(function() {
+    var ticker = $('#a').attr('id')+","+ $('#b').attr('id');
   var Aladdin = new blk.API();
   Aladdin.performanceData({
-    identifiers: 'AAPL,FB'
+    identifiers: ticker
   }, function(data) {
     $('#container').highcharts('StockChart', {
       rangeSelector: {
