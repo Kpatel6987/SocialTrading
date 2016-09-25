@@ -68,35 +68,27 @@
     </nav>
  <div id="wrapper">
     <!-- Sidebar -->
-    <div id="sidebar-wrapper" style="margin-top: 50px">
-       <ul class="sidebar-nav">
-           <li class="sidebar-brand">
-               <strong>Welcome </strong>
-           </li>
-           <li>
-               <a href="#">Dashboard</a>
-           </li>
-           <li>
-               <a data-toggle="collapse" href="#collapse1">Overview</a>
-               <div id="collapse1" class="panel-collapse collapse">
-               <table id="overview">
-                   <tr>
-                     <th>Total Equity: </th>
-                     <td id="equity">10000</td>
-                   </tr>
-                   <tr>
-                     <th>Stock Value: </th>
-                     <td id="stockVal">0</td>
-                   </tr>
-                   <tr>
-                     <th>Cash Value: </th>
-                     <td id="cashVal">10000</td>
-                   </tr>
-               </table>
-           </div>
-           </li>
-       </ul>
-   </div>
+ <div id="sidebar-wrapper" style="margin-top: 50px">
+              <ul class="sidebar-nav">
+                  <li class="sidebar-brand">
+                      <a href="#">
+                          Account Information
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">Dashboard</a>
+                  </li>
+                  <li>
+                      <a href="#">Overview</a>
+                  </li>
+                  <li>
+                      <a href="#">Shortcuts</a>
+                  </li>
+                  <li>
+                      <a href="#">Services</a>
+                  </li>
+              </ul>
+          </div>
           <!-- /#sidebar-wrapper -->
 
           <!-- Page Content -->
@@ -112,7 +104,7 @@
                             <p><strong>Phone: </strong>(123) 456-7890</p><br>
                             <h2>Automatic Deposit</h2>
                             <hr>
-                            <p> *Disclaimer: This is an optional feature and will automatically draw money from your bank account every month.<br/> You can specify the amount to withdraw or let us determine how much you can afford to invest. </p>
+                            <p> *Disclaimer: This is an optional feature that will automatically draw money from your bank account every month.<br/> You can specify the amount to withdraw or let us determine how much you can afford to invest.</p>
                             <div ng-app="">
                                 <form>
                                     <div class="checkbox">
@@ -184,7 +176,7 @@ function loadDoc() {
         var num = (netProfit * .2).toFixed(2);
         localStorage.setItem("portValue", num.toString());
         postMethod2(num);
-        document.getElementById("conf").innerHTML = "Withdraw Successful! Your new At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
+        document.getElementById("conf").innerHTML = "Withdraw Successful! At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
         } else if (netProfit < 0) {
         document.getElementById("conf").innerHTML = "Your expenses are too high to automatically invest";
         }
