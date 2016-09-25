@@ -60,6 +60,7 @@ tr:nth-child(even) {
 
 .navbar.navbar-inverse {
     background: rgba(34,34,34, 0.9);
+    max-height: 50px;
 }
 
 input.transparent-input {
@@ -68,3 +69,20 @@ input.transparent-input {
   border-radius: 25px;
   color: #EEEEEE;
 }
+
+.results {display:none;}
+
+.input-group:hover + .results {display:block;}
+
+
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+.lt-ie9 .input-group input { line-height: 26px }
