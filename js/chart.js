@@ -1,5 +1,16 @@
 $(function() {
     var ticker = $('#a').attr('id')+","+ $('#b').attr('id');
+// $().ajax({
+//     url : "https://www.blackrock.com/tools/json/performance",
+//     method : "GET",
+//     data : {
+//     }
+//
+// });
+
+
+
+
   var Aladdin = new blk.API();
   Aladdin.performanceData({
     identifiers: ticker

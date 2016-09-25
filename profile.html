@@ -112,7 +112,7 @@
                             <p><strong>Phone: </strong>(123) 456-7890</p><br>
                             <h2>Automatic Deposit</h2>
                             <hr>
-                            <p> *Disclaimer: This is an optional feature and will automatically draw money from your bank account every month.<br/> You can specify the amount to withdraw or let us determine how much you can afford to invest. </p>
+                            <p> *Disclaimer: This is an optional feature that will automatically draw money from your bank account every month.<br/> You can specify the amount to withdraw or let us determine how much you can afford to invest. </p>
                             <div ng-app="">
                                 <form>
                                     <div class="checkbox">
@@ -193,7 +193,7 @@ function loadDoc() {
         localStorage.setItem("portValue", num.toString());
         postMethod2(num);
         num = (num * 2).toFixed(2);
-        document.getElementById("conf").innerHTML = "Withdraw Successful! Your new At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
+        document.getElementById("conf").innerHTML = "Withdraw Successful! At the beginning of every month, $" + num + " will be taken out of your Capital One account and placed into this investment account";
         } else if (netProfit < 0) {
         document.getElementById("conf").innerHTML = "Your expenses are too high to automatically invest";
         }
