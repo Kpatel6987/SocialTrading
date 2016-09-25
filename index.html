@@ -233,9 +233,10 @@
             var cash = (Number)(cashVal) - (Number)(newCost);
             document.getElementById("stockVal").innerHTML = stock;
             document.getElementById("cashVal").innerHTML = cash;
-
+            localStorage.setItem("stockVal", stock.toString());
+            localStorage.setItem("cashVal", stock.toString());
         } else if (answer == "sell") {
-
+            document.getElementById("myTable").deleteRow(-1);
         }
     }
   </script>
