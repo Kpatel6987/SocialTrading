@@ -17,37 +17,57 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="trade.html">Trade</a></li>
-          <li><a href="tt.html">Trending Traders</a></li>
-          <li><a href="follow.html">Followers</a></li>
-          <li><a href="chat.html">Chat</a></li>
-        </ul>
-
-        </ul>
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Search</button>
-              </span>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <img src="./img/graphIcon.png" height="50" width="50" href="#menu-toggle" id="menu-toggle" class="imgToggler"/>
+            </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="trade.html">Trade</a></li>
+                  <li><a href="tt.html">Trending Traders</a></li>
+                  <li><a href="follow.html">Followers</a></li>
+                  <li><a href="chat.html">Chat</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                </ul>
+                <div class="row" style="padding-right:30px">
+                  <div class="col-lg-4" style="padding-top:7px">
+                    <div class="input-group">
+                      <input id="search" type="search" class="form-control transparent-input" placeholder="Search for a company!">
+                        <span class="input-group-btn">
+                          <button id="submit" class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-search"</span></button>
+                        </span>
+                    </div>
+                  <div class="results table-responsive">
+                    <table class="table table-striped">
+                      <tr>
+                        <th>Description</th>
+                        <th>As Of Date</th>
+                        <th>1 Day</th>
+                        <th>1 Month</th>
+                        <th>1 Year</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td id="description">-</td>
+                        <td id="asOfDate">-</td>
+                        <td id="oneDay">-</td>
+                        <td id="oneMonth">-</td>
+                        <td id="oneYear">-</td>
+                      </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-          </ul>
         </div>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
   <div id="wrapper">
     <!-- Sidebar -->
