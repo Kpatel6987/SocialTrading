@@ -21,17 +21,17 @@
     var chart = new CanvasJS.Chart("chartContainer",
     {
       title:{
-        text: "Top U.S Smartphone Operating Systems By Market Share, Q3 2012"
+        text: "Percentage of Holdings by Sector"
       },
       data: [
       {
        type: "doughnut",
        dataPoints: [
-       {  y: 53.37, indexLabel: "Android" },
-       {  y: 35.0, indexLabel: "Apple iOS" },
-       {  y: 7, indexLabel: "Blackberry" },
-       {  y: 2, indexLabel: "Windows Phone" },
-       {  y: 5, indexLabel: "Others" }
+       {  y: 53.37, indexLabel: "IT" },
+       {  y: 35.0, indexLabel: "Real Estate" },
+       {  y: 7, indexLabel: "Health Care" },
+       {  y: 2, indexLabel: "Financials" },
+       {  y: 5, indexLabel: "Energy" }
        ]
      }
      ]
@@ -130,7 +130,7 @@
  <!-- Modal -->
   <div class="modal fade" id="topModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -144,7 +144,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
   </div>
           <!-- Page Content -->
@@ -157,12 +157,14 @@
                                   <tr>
                                     <th>Rank</th>
                                     <th>Name</th>
+                                    <th>Total Return on Investments</th>
                                     <th>Followers</th>
                                     <th>View</th>
                                   </tr>
                                   <tr>
                                     <td>1</td>
                                     <td>Harambe</td>
+                                    <td>140%</td>
                                     <td>5000000</td>
                                     <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#topModal">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -173,6 +175,7 @@
                                   <tr>
                                       <td>2</td>
                                       <td>Pepe</td>
+                                      <td>132%</td>
                                       <td>800000</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -183,6 +186,7 @@
                                    <tr>
                                       <td>3</td>
                                       <td>Steve Jobs</td>
+                                      <td>115%</td>
                                       <td>2000</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -193,6 +197,7 @@
                                   <tr>
                                       <td>4</td>
                                       <td>Bill Gates</td>
+                                      <td>112%</td>
                                       <td>1999</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -203,6 +208,7 @@
                                   <tr>
                                       <td>5</td>
                                       <td>Linus Torvalds</td>
+                                      <td>101%</td>
                                       <td>1998</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -213,6 +219,7 @@
                                   <tr>
                                       <td>6</td>
                                       <td>Richard Stallman</td>
+                                      <td>85%</td>
                                       <td>1997</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -223,6 +230,7 @@
                                   <tr>
                                       <td>7</td>
                                       <td>Gabe Newell</td>
+                                      <td>77%</td>
                                       <td>1996</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
@@ -233,6 +241,7 @@
                                   <tr>
                                       <td>8</td>
                                       <td>Filthy Frank</td>
+                                      <td>67%</td>
                                       <td>1</td>
                                       <td><button type="View" onclick="#" ng-click="#" class="btn btn-default">View</button>
                                         <button type="Up" class="btn btn-secondary"><span class="glyphicon glyphicon-chevron-up"></span></button>
