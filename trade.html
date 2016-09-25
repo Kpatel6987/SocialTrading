@@ -9,7 +9,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="https://www.blackrock.com/tools/api/js/hackathon"></script>
+  <script src="./js/blackrock.js"></script>
   <script src="https://code.highcharts.com/stock/highstock.js"></script>
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
   <script src="./js/script.js"></script>
@@ -86,15 +86,15 @@
                       <table id="overview">
                           <tr>
                             <th>Total Equity: </th>
-                            <td id="equity">10000</td>
+                            <td id="equity"></td>
                           </tr>
                           <tr>
                             <th>Stock Value: </th>
-                            <td id="stockVal">0</td>
+                            <td id="stockVal"></td>
                           </tr>
                           <tr>
                             <th>Cash Value: </th>
-                            <td id="cashVal">10000</td>
+                            <td id="cashVal"></td>
                           </tr>
                       </table>
                   </div>
@@ -178,6 +178,14 @@
       function validate() {
 
       }
+  </script>
+  <script>
+      var equity = localStorage.getItem("equity");
+      var stockVal = localStorage.getItem("stockVal");
+      var cashVal = localStorage.getItem("cashVal");
+      document.getElementById("equity").innerHTML = equity;
+      document.getElementById("stockVal").innerHTML = stockVal;
+      document.getElementById("cashVal").innerHTML = cashVal;
   </script>
 </body>
 </html>
