@@ -89,3 +89,8 @@ input.transparent-input {
 }
 
 .lt-ie9 .input-group input { line-height: 26px }
+
+div.row_content2{
+    align-items: center;
+     margin-right: -500%;
+ }

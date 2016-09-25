@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="jquery.fullPage.js"></script>
+    <script src="particles.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                menu: '#menu',
+                verticalCentered: true,
+                sectionsColor: ['#A37372', '#8AA372', '#72A3A3', 'whitesmoke', '#000'],
+            });
+        });
+    </script>
+    <style>
+        .section{
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div id="particles-js"></div>
+        </div>
+        <div class="section"><h1>About Us</h1>
+        <p>We, in essence, are whayt we like to call a Social Trading Platform
+        , or STP, for short.</p>
+        </div>
+        <div class="section">Section 3</div>
+    </div>            
+</body> 
+</html>
