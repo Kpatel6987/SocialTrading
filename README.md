@@ -7,4 +7,4 @@ The platform does all of the general trading functions like searching, buying, a
 Another feature is the Intelligent Automatic Deposit. If the user wants, they give us their income, expenses, and bank info, and we calculate how much they can afford to put into investments each month and automatically put it into their trading account (we even put it straight into stocks if they want).
 
 
-*Edit: Some features may not work as the companies take down their API's (this was a Hackathon project so the API's were custom for us)
+*Edit: Some features may not work as the companies are taking down their API's (this was a Hackathon project so the API's were custom for us)
